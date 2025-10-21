@@ -1,14 +1,18 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
             "label": "build",
-            "type": "shell",
+            "type": "process",
             "command": "clang",
             "args": [
-                "'@compile_flags.txt'", // `'` for Powershell
+                "-I",
+                "Include",
+                "@compile_flags.txt",
                 "./src/main.c",
+                "./src/knights_tour.c",
                 "-o",
-                "main"
+                "main.exe"
             ],
             "group": {
                 "kind": "build",
@@ -17,16 +21,16 @@
         },
         {
             "label": "run",
-            "type": "shell",
-            "command": "./main",
+            "type": "process",
+            "command": ".\\main.exe",
             "group": {
+                
                 "kind": "test",
                 "isDefault": true
             },
             "dependsOn": [
                 "build"
-            ],
-        },
-    ],
-    "version": "2.0.0",
+            ]
+        }
+    ]
 }

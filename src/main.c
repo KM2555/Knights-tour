@@ -1,32 +1,21 @@
 #include <stdio.h>
+#include "knights_tour.h"
 
-int Control(int altitude) {
-  int thruster = 0;
+int main() {
+    size_t start_x = 0, start_y = 0; // starting position (change as needed)
 
-  if (altitude > 100)
-    thruster = 0;
-  else if (altitude > 0)
-    thruster = 1;
-  else
-    thruster = 0;
+    printf("Starting Knight's Tour on %d x %d board...\n", SIZE, SIZE);
 
-  return thruster;
-}clang
+    unsigned int visitedSquares = tour_greedy(start_x, start_y);
 
-void Test(int altitude) {
-  int thruster = Control(altitude);
-  int behaviorCorrect = (altitude > 100 && thruster == 0) ||
-                        (altitude <= 100 && altitude > 0 && thruster == 1) ||
-                        (altitude <= 0 && thruster == 0);
-  char *behaviorCorrectIcon = behaviorCorrect ? "v" : "x";
-  printf("For altitude %3d, your thruster is %d |%s|\n", altitude, thruster,
-         behaviorCorrectIcon);
-}
+    printf("Visited %u squares starting at (%zu, %zu)\n", visitedSquares, start_x, start_y);
 
-int main(void) {
-  Test(150);
-  Test(100);
-  Test(50);
-  Test(0);
-  Test(-1);
+    // Optional: print the visited pattern
+    static int visited[SIZE][SIZE] = {0};
+    // Collect visited pattern
+    // (we can modify tour_greedy to fill this if needed)
+    // For simplicity, let's just print a pattern
+    // Note: In this implementation, visited is local to tour_greedy, so you'd want to modify code to output it
+
+    return 0;
 }
