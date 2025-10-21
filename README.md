@@ -1,4 +1,4 @@
-# Hello
+# knights tour
 
 uni project for my C programming course
 
