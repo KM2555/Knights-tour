@@ -11,7 +11,7 @@ int Control(int altitude) {
     thruster = 0;
 
   return thruster;
-}
+}clang
 
 void Test(int altitude) {
   int thruster = Control(altitude);
